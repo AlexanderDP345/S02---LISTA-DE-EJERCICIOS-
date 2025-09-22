@@ -19,3 +19,6 @@ Se agregó un bloque al final para que, si el archivo se ejecuta directamente, g
 Esto no estaba en el post original, pero facilita las pruebas rápidas.
 Enfoque educativo
 Se priorizó que el código fuese corto y fácil de leer, más que una implementación optimizada como la de scikit-learn.
+
+
+el codigo fue hecho originalmente en Visual, con el formato creado ‎lunes, 18‎ de ‎septiembre‎ de ‎2025, ‏‎13:10:16 
