@@ -1,0 +1,35 @@
+import numpy as np
+from sklearn.metrics import pairwise_distances
+
+def dbscan(X, eps=0.5, min_samples=5):
+    X = np.asarray(X)
+    n = len(X)
+    D = pairwise_distances(X)       
+    labels = np.full(n, -2, int)    
+    cid = 0
+
+    for i in range(n):
+        if labels[i] != -2:
+            continue
+        neigh = np.where(D[i] <= eps)[0]
+        if len(neigh) < min_samples:
+            labels[i] = -1
+            continue
+  
+        labels[i] = cid
+        seeds = list(neigh)
+        j = 0
+        while j < len(seeds):
+            p = seeds[j]
+            if labels[p] == -1:
+                labels[p] = cid
+            if labels[p] == -2:
+                labels[p] = cid
+                neigh_p = np.where(D[p] <= eps)[0]
+                if len(neigh_p) >= min_samples:
+                    for q in neigh_p:
+                        if q not in seeds:
+                            seeds.append(q)
+            j += 1
+        cid += 1
+    return labels
