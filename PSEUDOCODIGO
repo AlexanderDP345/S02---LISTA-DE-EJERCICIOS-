@@ -1,0 +1,22 @@
+
+Definir parámetros:
+   - eps (radio de vecindad)
+   - min_pts (mínimo de puntos para formar un cluster)
+
+Para cada punto no visitado:
+   - Marcar como visitado
+   - Obtener sus vecinos (puntos dentro de eps)
+
+ Si el número de vecinos >= min_pts:
+   - Crear un nuevo cluster
+   - Expandir el cluster:
+     - Para cada vecino:
+       - Si no fue visitado, marcar y obtener sus vecinos
+       - Si cumple condición de densidad, añadir al cluster
+
+Si no cumple condición de densidad:
+   - Marcar punto como ruido (-1)
+
+ Repetir hasta recorrer todos los puntos
+
+ Devolver etiquetas de cluster para cada punto
