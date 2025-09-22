@@ -1,0 +1,4 @@
+if __name__ == "__main__":
+    from sklearn.datasets import make_blobs
+    X, _ = make_blobs(n_samples=50, centers=3, random_state=0)
+    print(dbscan(X, eps=1.0, min_samples=3))
